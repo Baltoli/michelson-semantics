@@ -17,14 +17,14 @@ pipeline {
     }
     stage('Build') {
       parallel {
-        stage('K')      { steps { sh 'make build-k -j8 RELEASE=true' } }
+        stage('K')      { steps { sh 'make build-llvm -j8 RELEASE=true' } }
       }
     }
     stage('Cross Test') {
       stages {
         stage('Build Tezos')      { steps { sh 'make deps-tezos'        } }
         stage('Build Compat')     { steps { sh 'make build-compat -j8 RELEASE=true' } }
-        stage('Cross-Validation') { steps { sh 'make test-cross    -j8' } }
+        stage('Cross-Validation') { steps { sh 'make test-cross' } }
       }
     }
   }
