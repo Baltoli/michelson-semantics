@@ -62,7 +62,7 @@ run_prove() {
 }
 
 run_interpret() {
-    cat "$run_file"
+    cat "$run_file" >&2
     krun --directory "$backend_dir" "$run_file" "${extra_args[@]}" "$@"
 }
 

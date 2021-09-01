@@ -132,6 +132,6 @@ fix_address "$test"
 interpret_quiet contract-expander $test_address > $test_expanded
 "$lib_dir/run-tezos.sh" "$test"
 stop_tezos
-cat "$test_output"
+cat "$test_output" >&2
 interpret output-compare $test_output
 rm -r "$TEMP_DIR"
