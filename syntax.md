@@ -95,8 +95,8 @@ Types are defined as expected.
                 | BinaryTypeName     AnnotationList Type Type
                 | BinaryPlusTypeName AnnotationList Type TypeList
 
-  syntax TypeList ::= Type TypeList
-                    | Type
+  syntax TypeList ::= Type
+                    > Type TypeList
 ```
 
 ### Data Literal Syntax
